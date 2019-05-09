@@ -11,7 +11,7 @@ import io.restassured.http.ContentType;
 public class TestAPI {
 
 	@Test
-	public void TesteGET() {
+	public void TestGET() {
 		String uriBase = "https://postman-echo.com/get";
 		given()
 			.relaxedHTTPSValidation()
@@ -22,12 +22,12 @@ public class TestAPI {
 		.then()
 			.statusCode(200) // O status http retornado foi 200
 			.contentType(ContentType.JSON) // O response foi retornado no formato JSON
-			.body("headers.host", equalTo("postman-echo.com")) // A chave ìhostî possui exatamente o valor postman-echo.comî
-			.body("args.foo1", containsString("bar")); // A chave ìfoo1î contÈm o valor ìbarî
+			.body("headers.host", equalTo("postman-echo.com")) // A chave ‚Äúhost‚Äù possui exatamente o valor postman-echo.com‚Äù
+			.body("args.foo1", containsString("bar")); // A chave ‚Äúfoo1‚Äù cont√©m o valor ‚Äúbar‚Äù
 	}
 	
 	@Test
-	public void TestePOST() {
+	public void TestPOST() {
 		String uriBase = "https://postman-echo.com/post";
 		given()
 			.relaxedHTTPSValidation().body("{ foo1: bar3, foo2: bar2 }")
@@ -36,8 +36,8 @@ public class TestAPI {
 		.then()
 			.statusCode(200) // O status http retornado foi 200
 			.contentType(ContentType.JSON) // O response foi retornado no formato JSON
-			.body("headers.host", equalTo("postman-echo.com")) // A chave ìhostî possui exatamente o valor postman-echo.comî
-			.body("data", containsString("{ foo1: bar3, foo2: bar2 }")); // A chave ìdataî contÈm o valor "{ foo1: bar3, foo2: bar2 }"
+			.body("headers.host", equalTo("postman-echo.com")) // A chave ‚Äúhost‚Äù possui exatamente o valor postman-echo.com‚Äù
+			.body("data", containsString("{ foo1: bar3, foo2: bar2 }")); // A chave ‚Äúdata‚Äù cont√©m o valor "{ foo1: bar3, foo2: bar2 }"
 	}
 
 }
